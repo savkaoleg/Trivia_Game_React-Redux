@@ -1,10 +1,10 @@
 {
-  "name": "Trivia_Game_React/Redux",
+  "name": "Trivia_Game_React_and_Redux",
   "version": "1.0.0",
   "description": "Trivia game app writen on react",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Savka Oleg",
   "license": "MIT",
