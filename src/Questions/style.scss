@@ -1,0 +1,25 @@
+.card {
+  text-align: center; 
+  width: 350px;
+  margin: 50px auto 10px;
+}
+
+.cardText {
+  margin-top: 10px;
+}
+
+.falseBtn {
+  background: #d32f2f!important;
+  margin: 10px;
+}
+
+.trueBtn {
+  background: #388e3c!important;
+  margin: 10px;
+}
+
+.title {
+  & > div {
+    margin: 0 auto;
+  }
+}
