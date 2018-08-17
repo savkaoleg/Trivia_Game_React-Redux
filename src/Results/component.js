@@ -1,16 +1,27 @@
+// @flow
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Button from 'react-toolbox/lib/button'
 import { Card, CardTitle, CardText } from 'react-toolbox/lib/card'
 import FontIcon from 'react-toolbox/lib/font_icon'
 import htmlDecode from '../hooks/htmlDecode'
 import './style.scss'
 
-class Home extends Component {
-  constructor (props) {
+type Props = {
+  clearAnsvers: Function,
+  history: Function,
+  redux: Object
+};
+
+type State = {
+  compareArr: Array<boolean>,
+  total: Number
+};
+
+class Home extends Component<Props, State> {
+  constructor (props: Object) {
     super(props)
 
-    const { questions, ansvers } = this.props.sample
+    const { questions, ansvers } = this.props.redux
 
     const compareArr = questions.map((it, index)=>{
       return (ansvers[index] === String(it.incorrect_answers))
@@ -25,12 +36,12 @@ class Home extends Component {
   }
 
   render () {
-    const { questions } = this.props.sample
+    const { questions } = this.props.redux
     return (
       <Card className='card'>
         <CardTitle className='title'
           title="You scored"
-          subtitle={this.state.total + '/10'}
+          subtitle= {` ${String(this.state.total)} /10`}
         />
         <CardText className='cardText'>
           {questions.map((it, index)=>{
@@ -55,12 +66,6 @@ class Home extends Component {
       </Card>
     )
   }
-}
-
-Home.propTypes = {
-  clearAnsvers: PropTypes.func,
-  history: PropTypes.object,
-  sample: PropTypes.object
 }
 
 export default Home

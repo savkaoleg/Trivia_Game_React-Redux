@@ -1,13 +1,15 @@
+// @flow
+
 import types from './types.js'
 
-export function setQuestions (questions) {
+export function setQuestions (questions: string) : Object {
   return {
     type: types.SET_QUESTIONS,
     questions
   }
 }
 
-export function setAnsver (id, ansver) {
+export function setAnsver (id: number, ansver: string) : Object {
   return {
     type: types.SET_ANSVER,
     id,
@@ -15,15 +17,15 @@ export function setAnsver (id, ansver) {
   }
 }
 
-export function clearAnsvers (push) {
+export function clearAnsvers (push: Function) : Object {
   return {
     type: types.CLEAR_ANSVERS,
     push
   }
 }
 
-export function setError(error) {
-  console.log('error',error)
+export function setError (error: string) : Object {
+  console.log('error', error)
   return {
     type: types.SET_ERROR,
     error
@@ -33,7 +35,7 @@ export function setError(error) {
 
 
 export function loadQuestions () {
-  return async (dispatch) => {
+  return async (dispatch: Function) => {
     try {
       const response = await fetch('https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean')
       const result = await response.json()

@@ -1,10 +1,11 @@
+// @flow
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './rootReducer'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import types from '../sample/types.js'
-import {loadQuestions} from '../sample/actions'
+import types from '../redux/types.js'
+import {loadQuestions} from '../redux/actions'
 
 
 const loggerMiddleware = createLogger({collapsed: (state, action) => {
@@ -28,6 +29,6 @@ const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(
   afterClearAnsversMidelware
 ))(createStore)
 
-export default function configureStore (initialState) {
+export default function configureStore (initialState: Object) {
   return createStoreWithMiddleware(rootReducer, initialState)
 }

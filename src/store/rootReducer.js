@@ -1,8 +1,9 @@
+// @flow
 import { combineReducers } from 'redux'
-import sample from '../sample/reducer'
+import redux from '../redux/reducer'
 
 const rootReducer = combineReducers({
-  sample
+  redux
 })
 
 export default rootReducer

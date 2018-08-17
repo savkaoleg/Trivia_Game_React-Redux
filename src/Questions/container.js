@@ -1,16 +1,17 @@
+// @flow
 import { connect } from 'react-redux'
 import questionComponent from './component'
-import { setAnsver } from '../sample/actions'
+import { setAnsver } from '../redux/actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: Object) : Object => {
   return {
-    sample: state.sample
+    redux: state.redux
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch: Function) : Object =>
   ({
-    setAnsver (id, ansver){
+    setAnsver (id: number, ansver: string): void{
       dispatch(setAnsver(id, ansver))
     }
   })

@@ -1,19 +1,24 @@
+// @flow
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Button from 'react-toolbox/lib/button'
 import { Card, CardTitle, CardText } from 'react-toolbox/lib/card'
 import { Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 import './style.scss'
 
-class Home extends Component {
-  constructor (props) {
+
+type Props = {
+  redux: Object,
+};
+
+class Home extends Component<Props> {
+  constructor (props: Object) {
     super(props)
   }
 
   render () {
 
-    const {responsed, error} = this.props.sample
+    const {responsed, error} = this.props.redux
 
     if (responsed){
       if (!error){
@@ -46,14 +51,10 @@ class Home extends Component {
       }
     } else {
       return (
-        <Loader text="Loading data ..."/>
+        <Loader text='Loading data ...' />
       )
     }
   }
-}
-
-Home.propTypes = {
-  sample: PropTypes.object
 }
 
 export default Home

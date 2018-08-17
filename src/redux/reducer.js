@@ -1,3 +1,5 @@
+// @flow
+
 import types from './types'
 
 const initialState = {
@@ -7,7 +9,7 @@ const initialState = {
   ansvers: []
 }
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state: Object = initialState, action: Object) {
   switch (action.type) {
     case types.SET_QUESTIONS:
       return Object.assign({}, state, {

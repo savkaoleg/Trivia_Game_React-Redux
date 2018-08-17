@@ -1,16 +1,17 @@
+// @flow
 import { connect } from 'react-redux'
 import resultsComponent from './component'
-import { clearAnsvers } from '../sample/actions'
+import { clearAnsvers } from '../redux/actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: Object) : Object => {
   return {
-    sample: state.sample
+    redux: state.redux
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch: Function) : Object =>
   ({
-    clearAnsvers (){
+    clearAnsvers (): void{
       dispatch(clearAnsvers(this))
     }
   })

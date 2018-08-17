@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { hot } from 'react-hot-loader'
 import Home from './Home/container'
 import Questions from './Questions/container'
 import Results from './Results/container'
@@ -13,4 +14,4 @@ const Routes = () => (
   </Switch>
 )
 
-export default Routes
+export default hot(module)(Routes)

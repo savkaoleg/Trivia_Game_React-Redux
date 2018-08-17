@@ -1,7 +1,8 @@
-import {loadQuestions} from '../sample/actions'
+// @flow
+import {loadQuestions} from '../redux/actions'
 
-export default function bootstrap ({ dispatch }) {
+export default function bootstrap (store: Object) {
   return () => {
-     dispatch(loadQuestions())
+     store.dispatch(loadQuestions())
   }
 }

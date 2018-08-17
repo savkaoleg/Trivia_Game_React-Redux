@@ -1,10 +1,15 @@
+// @flow
+
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 
 import './index.scss'
 
-class Loader extends Component {
-  constructor (props) {
+type Props = {
+  text: string
+};
+
+class Loader extends Component<Props> {
+  constructor (props: Object) {
     super(props)
   }
 
@@ -20,10 +25,6 @@ class Loader extends Component {
       </div>
     )
   }
-}
-
-Loader.propTypes = {
-  text: PropTypes.string
 }
 
 export default Loader

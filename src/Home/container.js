@@ -1,20 +1,15 @@
+// @flow
+
 import { connect } from 'react-redux'
 import homeComponent from './component'
-import { setAnsver } from '../sample/actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: Object) : Object => {
   return {
-    sample: state.sample
+    redux: state.redux
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  ({
-    setAnsver (id, ansver){
-      dispatch(setAnsver(id, ansver))
-    }
-  })
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(homeComponent)
+const Container = connect(mapStateToProps)(homeComponent)
 
 export default Container
