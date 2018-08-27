@@ -1,5 +1,7 @@
 # Trivia game app writen on React/Redux
 
+live demo: https://trivia-game-react.herokuapp.com/
+
 ### Getting Started
 1. Clone this repository
 2. Run `npm install && npm start`

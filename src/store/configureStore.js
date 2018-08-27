@@ -23,10 +23,16 @@ const afterClearAnsversMidelware = store => next => action => {
   next(action)
 }
 
+let middleWares = [ thunkMiddleware, afterClearAnsversMidelware ]
+
+const envArr = ['production', 'test']
+
+if (!envArr.includes(process.env.NODE_ENV)) {
+  middleWares = [...middleWares, loggerMiddleware]
+}
+
 const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(
-  thunkMiddleware,
-  loggerMiddleware,
-  afterClearAnsversMidelware
+  ...middleWares
 ))(createStore)
 
 export default function configureStore (initialState: Object) {
